@@ -64,22 +64,29 @@ Use the code below to get started with the model.
 
 ### Training Data
 
-<!-- This should link to a Data Card, perhaps with a short stub of information on what the training data is all about as well as documentation related to data pre-processing or additional filtering. -->
+This model was trained on a dataset with 172 rows of conversational pair of questions and answers that can be found on:
 
-{{ training_data | default("[More Information Needed]", true)}}
+- **Dataset:** {{ dataset | default("[More Information Needed]", true)}}
+
 
 ### Training Procedure 
 
-<!-- This relates heavily to the Technical Specifications. Content here should link to that section when it is relevant to the training procedure. -->
-
-#### Preprocessing [optional]
-
-{{ preprocessing | default("[More Information Needed]", true)}}
+This model was trained using QLoRA technique to fine-tune on a custom dataset on free-tier GPU available in Google Colab.
 
 
 #### Training Hyperparameters
+The following hyperparameters were used during training:
 
-- **Training regime:** {{ training_regime | default("[More Information Needed]", true)}} <!--fp32, fp16 mixed precision, bf16 mixed precision, bf16 non-mixed precision, fp16 non-mixed precision, fp8 mixed precision -->
+- learning_rate: 0.0002
+- train_batch_size: 16
+- eval_batch_size: 8
+- seed: 42
+- gradient_accumulation_steps: 4
+- total_train_batch_size: 64
+- optimizer: Adam with betas=(0.9,0.999) and epsilon=1e-08
+- lr_scheduler_type: cosine
+- lr_scheduler_warmup_ratio: 0.03
+- training_steps: 320
 
 #### Speeds, Sizes, Times [optional]
 
