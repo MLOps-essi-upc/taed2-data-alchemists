@@ -4,9 +4,9 @@
 {{ card_data }}
 ---
 
-# Model Card for {{ model_id | default("Model ID", true) }}
+# Model Card for {{ HEALTH CHAT BOT | default("HEALTH CHAT BOT", true) }}
 
-<!-- Provide a quick summary of what the model is/does. -->
+This model is a chat bot trained to answer health related questions. It is the fine tuned version of the following model: 'ybelkada/falcon-7b-sharded-bf16', on HuggingFace, on a data set with pairs of questions and answers of the subject, also from HuggingFace
 
 {{ model_summary | default("", true) }}
 
@@ -14,7 +14,7 @@
 
 ### Model Description
 
-<!-- Provide a longer summary of what this model is. -->
+The rationale behind this is to answer mental health related queries that can be factually verified without responding gibberish words.
 
 {{ model_description | default("", true) }}
 
@@ -27,21 +27,14 @@
 
 ### Model Sources [optional]
 
-<!-- Provide the basic links for the model. -->
+The model can be found on the followig link. Inside it can also be found the original model the fine tuned version is based on.
 
-- **Repository:** {{ repo | default("[More Information Needed]", true)}}
-- **Paper [optional]:** {{ paper | default("[More Information Needed]", true)}}
-- **Demo [optional]:** {{ demo | default("[More Information Needed]", true)}}
+- **Repository:** {{ [repo](https://huggingface.co/heliosbrahma/falcon-7b-sharded-bf16-finetuned-mental-health-conversational) | default("[More Information Needed]", true)}}
 
 ## Uses
 
-<!-- Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. -->
+This model can be used by users that want to know a little bit more about health related issues, such as knowing what a panic atack is.
 
-### Direct Use
-
-<!-- This section is for the model use without fine-tuning or plugging into a larger ecosystem/app. -->
-
-{{ direct_use | default("[More Information Needed]", true)}}
 
 ### Downstream Use [optional]
 
@@ -51,21 +44,15 @@
 
 ### Out-of-Scope Use
 
-<!-- This section addresses misuse, malicious use, and uses that the model will not work well for. -->
-
-{{ out_of_scope_use | default("[More Information Needed]", true)}}
+This model is not a replacement por a health professional and should not be used as the only recommendation the user gets.
 
 ## Bias, Risks, and Limitations
 
-<!-- This section is meant to convey both technical and sociotechnical limitations. -->
-
-{{ bias_risks_limitations | default("[More Information Needed]", true)}}
+The model was trained on the dataset which may contain sensitive information related to mental health. It is important to note that while mental health chatbots built using this model can be helpful, they are not a replacement for professional mental health care.
 
 ### Recommendations
 
-<!-- This section is meant to convey recommendations with respect to the bias, risk, and technical limitations. -->
-
-{{ bias_recommendations | default("Users (both direct and downstream) should be made aware of the risks, biases and limitations of the model. More information needed for further recommendations.", true)}}
+This model should be used as a complementary tool for medical procedures.
 
 ## How to Get Started with the Model
 
