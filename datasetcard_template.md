@@ -3,7 +3,7 @@
 # Doc / guide: https://huggingface.co/docs/hub/datasets-cards
 {{ card_data }}
 ---
-
+:)
 # Dataset Card for {{ pretty_name | default("Dataset Name", true) }}
 
 ## Dataset Description
