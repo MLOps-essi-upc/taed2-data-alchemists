@@ -4,12 +4,12 @@
 {{ card_data }}
 ---
 
-# Dataset Card for {{ pretty_name | default("Dataset Name", true) }}
+# Dataset Card for mental_health_chatbot_dataset
 
 ## Dataset Description
 
-- **Homepage:** {{ homepage_url | default("", true)}}
-- **Repository:** {{ repo_url | default("", true)}}
+- **Homepage:** {{ [homepage_url](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset) | default("", true)}}
+- **Repository:** {{ [repo_url](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset/tree/main) | default("", true)}}
 - **Paper:** {{ paper_url | default("", true)}}
 - **Leaderboard:** {{ leaderboard_url | default("", true)}}
 - **Point of Contact:** {{ point_of_contact | default("", true)}}
