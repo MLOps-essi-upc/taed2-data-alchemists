@@ -30,7 +30,13 @@ The model can be found on the followig link. Inside it can also be found the ori
 
 ## Uses
 
-This model can be used by users that want to know a little bit more about health related issues, such as knowing what a panic atack is.
+A chatbot focused on mental health can be a valuable tool to provide support, information, and resources to individuals dealing with mental health issues. Here are some possible uses of a mental health chatbot:
+
+- **Information and Education:** The chatbot can offer information about various mental health conditions, their symptoms, causes, and treatment options. It can help raise awareness and reduce stigma surrounding mental health.
+- **Medication and Treatment Information:** For users who are prescribed medication or undergoing therapy, the chatbot can provide information about medications, potential side effects, and the importance of adhering to treatment plans.
+- **24/7 Availability:** Unlike human support, a chatbot can be available 24/7, making it a valuable resource for users who need assistance during non-business hours or in different time zones.
+- **Anonymous and Non-Judgmental:** Users may feel more comfortable discussing their mental health concerns with a chatbot, as it offers anonymity and does not pass judgment.
+- **Preventative Education:** The chatbot can offer proactive tips for maintaining good mental health and preventing mental health issues, such as stress management techniques and healthy lifestyle advice.
 
 
 ### Downstream Use [optional]
@@ -41,15 +47,15 @@ This model can be used by users that want to know a little bit more about health
 
 ### Out-of-Scope Use
 
-This model is not a replacement por a health professional and should not be used as the only recommendation the user gets.
+While mental health chatbots can be a valuable resource, they are not a replacement for professional mental health care. Users with severe or persistent mental health issues should be encouraged to seek help from qualified mental health professionals. Chatbots can complement and enhance mental health support but should not be relied upon as the sole source of care.
 
 ## Bias, Risks, and Limitations
 
-The model was trained on the dataset which may contain sensitive information related to mental health. It is important to note that while mental health chatbots built using this model can be helpful, they are not a replacement for professional mental health care.
+The model underwent training using a dataset that could potentially contain sensitive mental health-related information. It is crucial to emphasize that while mental health chatbots developed with this model can provide assistance, they should not be considered a substitute for professional mental health care. Chatbots have inherent limitations as they lack subjectivity and the ability to interpret non-verbal cues or reactions. Furthermore, there could be a bias depending on the dataset used for training and the individuals involved in creating it.
 
 ### Recommendations
 
-This model should be used as a complementary tool for medical procedures.
+This model should be utilized as a supplementary tool in medical procedures. It is not capable of making diagnoses or prescribing treatments
 
 ## How to Get Started with the Model
 
@@ -59,14 +65,17 @@ Use the code below to get started with the model.
 
 ## Training Details
 
+
+
 ### Training Data
 
-This model was trained on a dataset with 172 rows of conversational pair of questions and answers that can be found on:
+This model was trained on a dataset with 172 rows of conversational pair of questions and answers stored as strings. The file has an extension .parquet.
+The dataset can be found on:
 
-- **Dataset:** {{ dataset | default("[More Information Needed]", true)}}
-
+- **Dataset:** heliosbrahma/mental_health_chatbot_dataset
 
 ### Training Procedure 
+
 
 This model was trained using QLoRA technique to fine-tune on a custom dataset on free-tier GPU available in Google Colab.
 
