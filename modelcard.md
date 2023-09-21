@@ -4,19 +4,15 @@
 {{ card_data }}
 ---
 
-# Model Card for {{ HEALTH CHAT BOT | default("HEALTH CHAT BOT", true) }}
+# Model Card for HEALTH CHAT BOT🤖🏥
 
-This model is a chat bot trained to answer health related questions. It is the fine tuned version of the following model: 'ybelkada/falcon-7b-sharded-bf16', on HuggingFace, on a data set with pairs of questions and answers of the subject, also from HuggingFace
-
-{{ model_summary | default("", true) }}
+This model is a chat bot trained to answer health related questions. It is the fine tuned version of the following model: 'ybelkada/falcon-7b-sharded-bf16', on HuggingFace, on a data set with pairs of questions and answers of the subject, also from HuggingFace.
 
 ## Model Details
 
 ### Model Description
 
 The rationale behind this is to answer mental health related queries that can be factually verified without responding gibberish words.
-
-{{ model_description | default("", true) }}
 
 - **Developed by:** {{ developers | default("[More Information Needed]", true)}}
 - **Shared by [optional]:** {{ shared_by | default("[More Information Needed]", true)}}
