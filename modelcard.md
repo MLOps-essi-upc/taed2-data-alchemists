@@ -14,12 +14,13 @@ This model is a chat bot trained to answer health related questions. It is the f
 
 The rationale behind this is to answer mental health related queries that can be factually verified without responding gibberish words.
 
-- **Developed by:** {{ developers | default("[More Information Needed]", true)}}
-- **Shared by [optional]:** {{ shared_by | default("[More Information Needed]", true)}}
-- **Model type:** {{ model_type | default("[More Information Needed]", true)}}
-- **Language(s) (NLP):** {{ language | default("[More Information Needed]", true)}}
-- **License:** {{ license | default("[More Information Needed]", true)}}
-- **Finetuned from model [optional]:** {{ finetuned_from | default("[More Information Needed]", true)}}
+- **Developed by:** ybelkada
+
+- **Shared by:** heliosbrahma
+- **Model type:** NLP model
+- **Language(s):** English
+- **License:** mit
+- **Finetuned from model:** 'ybelkada/falcon-7b-sharded-bf16'
 
 ### Model Sources [optional]
 
