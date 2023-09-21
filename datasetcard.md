@@ -8,96 +8,39 @@
 
 ## Dataset Description
 
-- **Homepage:** {{ [homepage_url](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset) | default("", true)}}
-- **Repository:** {{ [repo_url](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset/tree/main) | default("", true)}}
-- **Paper:** {{ paper_url | default("", true)}}
-- **Leaderboard:** {{ leaderboard_url | default("", true)}}
-- **Point of Contact:** {{ point_of_contact | default("", true)}}
+- **Homepage:** [homepage_url](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset)
+- **Repository:** [repo_url](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset/tree/main)
 
 ### Dataset Summary
 
-{{ dataset_summary | default("[More Information Needed]", true)}}
-
-### Supported Tasks and Leaderboards
-
-{{ supported_tasks_and_leaderboards_section | default("[More Information Needed]", true)}}
+This dataset contains conversational pair of questions and answers in a single text related to Mental Health. Dataset was curated from popular healthcare blogs like WebMD, Mayo Clinic and HeatlhLine, online FAQs etc. All questions and answers have been anonymized to remove any PII data and pre-processed to remove any unwanted characters.
 
 ### Languages
 
-{{ languages_section | default("[More Information Needed]", true)}}
+The text in the dataset is in English.
 
 ## Dataset Structure
 
 ### Data Instances
 
-{{ data_instances_section | default("[More Information Needed]", true)}}
+A data instance include a text columns which is a conversational pair of questions and answers. Questions were asked by the patients and answers were given by healthcare providers.
 
 ### Data Fields
 
-{{ data_fields_section | default("[More Information Needed]", true)}}
-
-### Data Splits
-
-{{ data_splits_section | default("[More Information Needed]", true)}}
+- 'text': conversational pair of questions and answers between patient and healthcare provider.
 
 ## Dataset Creation
 
 ### Curation Rationale
 
-{{ curation_rationale_section | default("[More Information Needed]", true)}}
+Chatbots offer a readily available and accessible platform for individuals seeking support. They can be accessed anytime and anywhere, providing immediate assistance to those in need. Chatbots can offer empathetic and non-judgmental responses, providing emotional support to users. While they cannot replace human interaction entirely, they can be a helpful supplement, especially in moments of distress. Hence, this dataset was curated to help finetune a conversational AI bot using this custom dataset which can then be deployed and be provided to the end patient as a chatbot.
 
 ### Source Data
 
-#### Initial Data Collection and Normalization
-
-{{ data_collection_section | default("[More Information Needed]", true)}}
-
-#### Who are the source language producers?
-
-{{ source_language_producers_section | default("[More Information Needed]", true)}}
-
-### Annotations
-
-#### Annotation process
-
-{{ annotation_process_section | default("[More Information Needed]", true)}}
-
-#### Who are the annotators?
-
-{{ who_are_annotators_section | default("[More Information Needed]", true)}}
-
-### Personal and Sensitive Information
-
-{{ personal_and_sensitive_information_section | default("[More Information Needed]", true)}}
+This dataset was curated from popular healthcare blogs like WebMD, Mayo Clinic and HeatlhLine, online FAQs etc.
 
 ## Considerations for Using the Data
 
-### Social Impact of Dataset
+### Personal and Sensitive Information
 
-{{ social_impact_section | default("[More Information Needed]", true)}}
-
-### Discussion of Biases
-
-{{ discussion_of_biases_section | default("[More Information Needed]", true)}}
-
-### Other Known Limitations
-
-{{ known_limitations_section | default("[More Information Needed]", true)}}
-
-## Additional Information
-
-### Dataset Curators
-
-{{ dataset_curators_section | default("[More Information Needed]", true)}}
-
-### Licensing Information
-
-{{ licensing_information_section | default("[More Information Needed]", true)}}
-
-### Citation Information
-
-{{ citation_information_section | default("[More Information Needed]", true)}}
-
-### Contributions
-
-{{ contributions_section | default("[More Information Needed]", true)}}
+The dataset may contain sensitive information related to mental health. All questions and answers have been anonymized to remove any PII data.
