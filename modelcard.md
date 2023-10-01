@@ -18,7 +18,7 @@ The rationale behind this is to answer mental health related queries that can be
 - **License:** mit
 - **Finetuned from model:** 'ybelkada/falcon-7b-sharded-bf16'
 
-### Model Sources [optional]
+### Model Sources
 
 The model can be found on the followig link. Inside it can also be found the original model the fine tuned version is based on.
 
