@@ -74,5 +74,5 @@ The following hyperparameters were used during training:
 - training_steps: 320
 
 
-## Model Card Authors [optional]
+## Model Card Authors
 The authors of this Model Card are Roger Bel Clapés, Queralt Benito Martín and Martí Farré Farrús.
