@@ -4,8 +4,9 @@
 
 ## Dataset Description
 
+- **Repository** [repo_url](https://github.com/MLOps-essi-upc/taed2-data-alchemists/tree/main/heliosbrahmamental_health_chatbot_dataset)
 - **Homepage:** [homepage_url](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset)
-- **Repository:** [repo_url](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset/tree/main)
+- **Original Repository:** [og_repo_url](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset/tree/main)
 
 ### Dataset Summary
 
