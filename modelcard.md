@@ -1,10 +1,6 @@
----
-# For reference on model card metadata, see the spec: https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1
-# Doc / guide: https://huggingface.co/docs/hub/model-cards
-{{ card_data }}
----
 
-# Model Card for HEALTH CHAT BOT🤖🏥
+
+# Model Card for MENTAL HEALTH CHAT BOT🤖🏥
 
 This model is a chat bot trained to answer health related questions. It is the fine tuned version of the following model: 'ybelkada/falcon-7b-sharded-bf16', on HuggingFace, on a data set with pairs of questions and answers of the subject, also from HuggingFace.
 
@@ -22,11 +18,11 @@ The rationale behind this is to answer mental health related queries that can be
 - **License:** mit
 - **Finetuned from model:** 'ybelkada/falcon-7b-sharded-bf16'
 
-### Model Sources [optional]
+### Model Sources
 
 The model can be found on the followig link. Inside it can also be found the original model the fine tuned version is based on.
 
-- **Repository:** {{ [repo](https://huggingface.co/heliosbrahma/falcon-7b-sharded-bf16-finetuned-mental-health-conversational) | default("[More Information Needed]", true)}}
+- **Repository:** https://github.com/MLOps-essi-upc/taed2-data-alchemists/edit/main/modelcard.md
 
 ## Uses
 
@@ -37,13 +33,6 @@ A chatbot focused on mental health can be a valuable tool to provide support, in
 - **24/7 Availability:** Unlike human support, a chatbot can be available 24/7, making it a valuable resource for users who need assistance during non-business hours or in different time zones.
 - **Anonymous and Non-Judgmental:** Users may feel more comfortable discussing their mental health concerns with a chatbot, as it offers anonymity and does not pass judgment.
 - **Preventative Education:** The chatbot can offer proactive tips for maintaining good mental health and preventing mental health issues, such as stress management techniques and healthy lifestyle advice.
-
-
-### Downstream Use [optional]
-
-<!-- This section is for the model use when fine-tuned for a task, or when plugged into a larger ecosystem/app -->
-
-{{ downstream_use | default("[More Information Needed]", true)}}
 
 ### Out-of-Scope Use
 
@@ -57,15 +46,7 @@ The model underwent training using a dataset that could potentially contain sens
 
 This model should be utilized as a supplementary tool in medical procedures. It is not capable of making diagnoses or prescribing treatments
 
-## How to Get Started with the Model
-
-Use the code below to get started with the model.
-
-{{ get_started_code | default("[More Information Needed]", true)}}
-
 ## Training Details
-
-
 
 ### Training Data
 
@@ -75,8 +56,6 @@ The dataset can be found on:
 - **Dataset:** heliosbrahma/mental_health_chatbot_dataset
 
 ### Training Procedure 
-
-
 This model was trained using QLoRA technique to fine-tune on a custom dataset on free-tier GPU available in Google Colab.
 
 
@@ -94,106 +73,6 @@ The following hyperparameters were used during training:
 - lr_scheduler_warmup_ratio: 0.03
 - training_steps: 320
 
-#### Speeds, Sizes, Times [optional]
 
-<!-- This section provides information about throughput, start/end time, checkpoint size if relevant, etc. -->
-
-{{ speeds_sizes_times | default("[More Information Needed]", true)}}
-
-## Evaluation
-
-<!-- This section describes the evaluation protocols and provides the results. -->
-
-### Testing Data, Factors & Metrics
-
-#### Testing Data
-
-<!-- This should link to a Data Card if possible. -->
-
-{{ testing_data | default("[More Information Needed]", true)}}
-
-#### Factors
-
-<!-- These are the things the evaluation is disaggregating by, e.g., subpopulations or domains. -->
-
-{{ testing_factors | default("[More Information Needed]", true)}}
-
-#### Metrics
-
-<!-- These are the evaluation metrics being used, ideally with a description of why. -->
-
-{{ testing_metrics | default("[More Information Needed]", true)}}
-
-### Results
-
-{{ results | default("[More Information Needed]", true)}}
-
-#### Summary
-
-{{ results_summary | default("", true) }}
-
-## Model Examination [optional]
-
-<!-- Relevant interpretability work for the model goes here -->
-
-{{ model_examination | default("[More Information Needed]", true)}}
-
-## Environmental Impact
-
-<!-- Total emissions (in grams of CO2eq) and additional considerations, such as electricity usage, go here. Edit the suggested text below accordingly -->
-
-Carbon emissions can be estimated using the [Machine Learning Impact calculator](https://mlco2.github.io/impact#compute) presented in [Lacoste et al. (2019)](https://arxiv.org/abs/1910.09700).
-
-- **Hardware Type:** {{ hardware | default("[More Information Needed]", true)}}
-- **Hours used:** {{ hours_used | default("[More Information Needed]", true)}}
-- **Cloud Provider:** {{ cloud_provider | default("[More Information Needed]", true)}}
-- **Compute Region:** {{ cloud_region | default("[More Information Needed]", true)}}
-- **Carbon Emitted:** {{ co2_emitted | default("[More Information Needed]", true)}}
-
-## Technical Specifications [optional]
-
-### Model Architecture and Objective
-
-{{ model_specs | default("[More Information Needed]", true)}}
-
-### Compute Infrastructure
-
-{{ compute_infrastructure | default("[More Information Needed]", true)}}
-
-#### Hardware
-
-{{ hardware | default("[More Information Needed]", true)}}
-
-#### Software
-
-{{ software | default("[More Information Needed]", true)}}
-
-## Citation [optional]
-
-<!-- If there is a paper or blog post introducing the model, the APA and Bibtex information for that should go in this section. -->
-
-**BibTeX:**
-
-{{ citation_bibtex | default("[More Information Needed]", true)}}
-
-**APA:**
-
-{{ citation_apa | default("[More Information Needed]", true)}}
-
-## Glossary [optional]
-
-<!-- If relevant, include terms and calculations in this section that can help readers understand the model or model card. -->
-
-{{ glossary | default("[More Information Needed]", true)}}
-
-## More Information [optional]
-
-{{ more_information | default("[More Information Needed]", true)}}
-
-## Model Card Authors [optional]
-
-{{ model_card_authors | default("[More Information Needed]", true)}}
-
-## Model Card Contact
-
-{{ model_card_contact | default("[More Information Needed]", true)}}
+## Model Card Authors
+The authors of this Model Card are Roger Bel Clapés, Queralt Benito Martín and Martí Farré Farrús.

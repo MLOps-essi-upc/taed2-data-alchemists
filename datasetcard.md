@@ -4,12 +4,13 @@
 
 ## Dataset Description
 
-- **Homepage:** [homepage_url](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset)
-- **Repository:** [repo_url](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset/tree/main)
+- **Repository** [repo_url](https://github.com/MLOps-essi-upc/taed2-data-alchemists/tree/main/heliosbrahmamental_health_chatbot_dataset)
+- **Original Homepage:** [og_homepage_url](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset)
+- **Original Repository:** [og_repo_url](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset/tree/main)
 
 ### Dataset Summary
 
-This dataset contains conversational pair of questions and answers in a single text related to Mental Health. Dataset was curated from popular healthcare blogs like WebMD, Mayo Clinic and HeatlhLine, online FAQs etc. All questions and answers have been anonymized to remove any PII data and pre-processed to remove any unwanted characters.
+This dataset comprises conversational pairs of questions and corresponding answers, all centered around the topic of Mental Health. The data curation process involved sourcing content from reputable healthcare sources such as WebMD, Mayo Clinic, HealthLine, and online FAQs. To ensure privacy and data security, all questions and answers have undergone anonymization, eliminating any personally identifiable information (PII). Furthermore, thorough pre-processing has been applied to eliminate extraneous characters, resulting in a clean and structured dataset for analysis and model development.
 
 ### Languages
 
