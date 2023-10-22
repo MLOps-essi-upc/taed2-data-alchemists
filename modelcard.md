@@ -1,22 +1,22 @@
 
 
-# Model Card for MENTAL HEALTH CHAT BOT🤖🏥
+# Model Card for DIGIT RECOGNIZER🔢🔍
 
-This model is a chat bot trained to answer health related questions. It is the fine tuned version of the following model: 'ybelkada/falcon-7b-sharded-bf16', on HuggingFace, on a data set with pairs of questions and answers of the subject, also from HuggingFace.
+This model is used to identify digits from a dataset of tens of thousands of handwritten images, by utilizing convolutional neural networks (CNN). MNIST handwritten digit dataset is used to train and test the CNN model.
 
 ## Model Details
 
 ### Model Description
 
-The rationale behind this is to answer mental health related queries that can be factually verified without responding gibberish words.
+The rationale behind this is to recognize, as accurately as possible, the numbers from 1 to 9 by analizing images of handwritten digits.
 
-- **Developed by:** ybelkada
+- **Developed by:*andikarachman* 
 
-- **Shared by:** heliosbrahma
+- **Shared by:** andikarachman
 - **Model type:** NLP model
 - **Language(s):** English
-- **License:** mit
-- **Finetuned from model:** 'ybelkada/falcon-7b-sharded-bf16'
+- **License:** CC BY-SA 3.0
+- **Finetuned from model:** 'CNN-Digit-Recognizer'
 
 ### Model Sources
 
@@ -26,52 +26,54 @@ The model can be found on the followig link. Inside it can also be found the ori
 
 ## Uses
 
-A chatbot focused on mental health can be a valuable tool to provide support, information, and resources to individuals dealing with mental health issues. Here are some possible uses of a mental health chatbot:
+Handwritten Digit Recognition model, has a wide range of practical applications.
+Some of the most common uses are the following:
 
-- **Information and Education:** The chatbot can offer information about various mental health conditions, their symptoms, causes, and treatment options. It can help raise awareness and reduce stigma surrounding mental health.
-- **Medication and Treatment Information:** For users who are prescribed medication or undergoing therapy, the chatbot can provide information about medications, potential side effects, and the importance of adhering to treatment plans.
-- **24/7 Availability:** Unlike human support, a chatbot can be available 24/7, making it a valuable resource for users who need assistance during non-business hours or in different time zones.
-- **Anonymous and Non-Judgmental:** Users may feel more comfortable discussing their mental health concerns with a chatbot, as it offers anonymity and does not pass judgment.
-- **Preventative Education:** The chatbot can offer proactive tips for maintaining good mental health and preventing mental health issues, such as stress management techniques and healthy lifestyle advice.
+- **Digit Recognition in Postal Services:** Handwritten digit recognition is often used by postal services to automate the sorting of mail. It can read the handwritten postal codes, making the process more efficient.
+- **Bank Check Processing:** Banks use digit recognition models to automatically read the handwritten amounts on checks, reducing errors and processing time.
+- **Digital Document Scanning:** Scanning handwritten documents or forms and converting them into machine-readable text is made easier with digit recognition. This can be useful in digitizing historical documents and records.
+- **Handwriting Recognition in Tablets and Smartphones:** Digit recognition models are often incorporated into tablets and smartphones for applications like note-taking and converting handwritten notes to text.
+- **Accessibility Features:** Digit recognition can be used in assistive technologies to help individuals with disabilities interact with digital devices, such as converting handwritten notes to text or reading handwritten numbers aloud.
 
 ### Out-of-Scope Use
 
-While mental health chatbots can be a valuable resource, they are not a replacement for professional mental health care. Users with severe or persistent mental health issues should be encouraged to seek help from qualified mental health professionals. Chatbots can complement and enhance mental health support but should not be relied upon as the sole source of care.
+If not used ethically, this model can be used to commit forgery and fraud, for example by using the model to create counterfeit documents or to manipulate handwritten numbers for fraudulent purposes, such as altering checks or identification documents. Users are asked to use the model in an ethical and correct way. 
 
 ## Bias, Risks, and Limitations
 
-The model underwent training using a dataset that could potentially contain sensitive mental health-related information. It is crucial to emphasize that while mental health chatbots developed with this model can provide assistance, they should not be considered a substitute for professional mental health care. Chatbots have inherent limitations as they lack subjectivity and the ability to interpret non-verbal cues or reactions. Furthermore, there could be a bias depending on the dataset used for training and the individuals involved in creating it.
+The model can be biased if the training data used to build it is not representative of the population it will be applied to. For example, if the training data contains predominantly one type of handwriting, the model may perform poorly on other handwriting styles. Moreover, since a big majority of the population is righ-handed, if the dataset doesn't have enough left-handed representation, it could lead to difficulties identifying the digits written by the second group.
+This model also presents some legal risks. Using digit recognition technology for unlawful purposes, like forging documents, can lead to legal consequences.
+As for limitations, the model may struggle to generalize to handwriting styles not present in the training data, leading to errors in recognition. Noisy or smudged handwritten characters may lead to incorrect recognition, affecting the model's robustness.
 
 ### Recommendations
 
-This model should be utilized as a supplementary tool in medical procedures. It is not capable of making diagnoses or prescribing treatments
+Adhering to ethical guidelines, data privacy regulations, and security best practices can help ensure responsible and safe use of digit recognition models. Regular audits and updates of the model's performance can also help maintain its effectiveness and fairness.
 
 ## Training Details
 
 ### Training Data
 
-This model was trained on a dataset with 172 rows of conversational pair of questions and answers stored as strings. The file has an extension .parquet.
+This model was trained on a dataset with 42000 images that contain a handwritten digit. The file has an extension .csv.
 The dataset can be found on:
 
-- **Dataset:** heliosbrahma/mental_health_chatbot_dataset
+- **Dataset:** (https://www.kaggle.com/competitions/digit-recognizer/data)
 
 ### Training Procedure 
-This model was trained using QLoRA technique to fine-tune on a custom dataset on free-tier GPU available in Google Colab.
-
+This model was trained fine-tuning a convolutional neural network. 
+The dataset is slipt in three parts:
+- 60% of the dataset become the train set.
+- 20% of the dataset become the validation set.
+- 20% of the dataset become the test set.
 
 #### Training Hyperparameters
 The following hyperparameters were used during training:
 
-- learning_rate: 0.0002
-- train_batch_size: 16
-- eval_batch_size: 8
-- seed: 42
-- gradient_accumulation_steps: 4
-- total_train_batch_size: 64
-- optimizer: Adam with betas=(0.9,0.999) and epsilon=1e-08
-- lr_scheduler_type: cosine
-- lr_scheduler_warmup_ratio: 0.03
-- training_steps: 320
+- num_classes: 10
+- lr: 0.001
+- train_batch_size: 100
+- eval_batch_size: 100
+- optimizer: alpha=0.9 and eps=1e-08 
+n_iters = 2000
 
 
 ## Model Card Authors
