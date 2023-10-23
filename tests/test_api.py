@@ -41,12 +41,17 @@ def test_model_prediction(client, payload):
     # Use constants if fixture created
     if os.path.isfile(payload):
         _files = {'uploadFile': open(pyload, 'rb')}
-        response = client.post('/models}}',
-                           params={
-                               "accept": {{application/json}}
-                           },
-                           files=_files
-                           )
+        # Define the URL and additional headers
+        url = "http://127.0.0.1:8000/models"
+        headers = {"accept": "application/json"}
+
+        # Send the POST request
+        response = client.post(
+            url,
+            headers=headers,
+            files=_files
+        )
+
         assert response.status_code == 200
     else:
-        pytest.fail("Scratch file does not exists.")
+        pytest.fail("File does not exist.")
