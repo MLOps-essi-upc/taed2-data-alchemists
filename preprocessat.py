@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[9]:
-
 
 import os
 import numpy as np
@@ -33,12 +28,17 @@ for image_name in sorted(os.listdir(image_folder)):
         # Flatten the 2D array into a 1D array
         img_flat = img_normalized.flatten()
 
-        # Append the flattened, normalized pixel values to the list
-        normalized_pixel_data.append(img_flat)
+        # Get the 'id' (last character of the image name) and convert it to an integer
+        image_id = [int(image_name[-5])]
+
+        image_id.extend(img_flat)
+        print(len(image_id))
+        # Append the 'id' and the flattened, normalized pixel values to the list
+        normalized_pixel_data.append(image_id)
+        print(len(normalized_pixel_data[0]))
 
 # Create a DataFrame from the list of normalized pixel values
-pixel_df = pd.DataFrame(normalized_pixel_data, columns=['pixel{}'.format(i) for i in range(len(normalized_pixel_data[0]))])
+pixel_df = pd.DataFrame(normalized_pixel_data, columns=['id'] + ['pixel{}'.format(i) for i in range(len(normalized_pixel_data[0])-1)])
 
 # Save the DataFrame to a CSV file
 pixel_df.to_csv('data/test.csv', index=False)
-
