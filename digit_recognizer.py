@@ -216,13 +216,12 @@ def train(n_epochs, loaders, model, optimizer, criterion, use_cuda, save_path):
 
 # Train the model
 model = train(30, loaders, model, optimizer,
-              criterion, use_cuda, 'cnn_digit_recognizer.pt')
+              criterion, use_cuda, 'models/cnn_digit_recognizer.pt')
 
 
 # Load the model that got the best validation accuracy
-model.load_state_dict(torch.load('cnn_digit_recognizer.pt'))
+model.load_state_dict(torch.load('models/cnn_digit_recognizer.pt'))
 
-torch.save(model.state_dict(), 'digit_recognizer.pth')
 
 def test(loaders, model, criterion, use_cuda):
 

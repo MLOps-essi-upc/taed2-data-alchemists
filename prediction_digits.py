@@ -18,6 +18,7 @@ from torchvision import datasets
 
 def predict():
     prova = pd.read_csv('data/test.csv', dtype=np.float32)
+    #prova = prova.head(1)
     labels_prova = prova['id'].values
     img_prova = prova.drop(labels='id', axis=1).values / 255 # Normalization
 
@@ -82,7 +83,7 @@ def predict():
     if use_cuda:
         model.cuda()
 
-    model.load_state_dict(torch.load('digit_recognizer.pth'))
+    model.load_state_dict(torch.load('models/cnn_digit_recognizer.pt'))
 
     # helper function to un-normalize and display an image
     def imshow(img):
@@ -94,6 +95,7 @@ def predict():
                '5', '6', '7', '8', '9']
 
     predictions_output = []
+    labels_output = []
     # Obtain one batch of test images
     for images, labels in prova_loader:
 
@@ -106,20 +108,15 @@ def predict():
         # Convert output probabilities to predicted class
         _, preds_tensor = torch.max(output, 1)
         preds = np.squeeze(preds_tensor.numpy()) if not use_cuda else np.squeeze(preds_tensor.cpu().numpy())
-
-        # Plot the images in the batch, along with predicted and true labels
-        fig = plt.figure(figsize=(20, 5))
-        for idx in range(10):
-            ax = fig.add_subplot(2, 10 // 2, idx + 1, xticks=[], yticks=[])
-            # You can use images[idx].cpu() instead of images.cpu()[idx]
-            imshow(images[idx].cpu())
-            ax.set_title("Predicted: {}".format(classes[preds[idx]]))
-            #print("Imatge:{} és {}".format(classes[labels[idx]], classes[preds[idx]]))
-            predictions_output.append(classes[preds[idx]])
-    return predictions_output
+        """
+        for pred in preds:
+            predictions_output.append(pred)
+            labels_output.append(labels)"""
+    print(preds[0])
+    return preds, labels
 
 def main():
-    pred = predict()
-    print(pred)
+    pred, lab = predict()
+    print(pred, lab)
 
 main()
