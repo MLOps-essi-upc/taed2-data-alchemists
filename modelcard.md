@@ -10,8 +10,7 @@ This model is used to identify digits from a dataset of tens of thousands of han
 
 The rationale behind this is to recognize, as accurately as possible, the numbers from 1 to 9 by analizing images of handwritten digits.
 
-- **Developed by:*andikarachman* 
-
+- **Developed by:** andikarachman 
 - **Shared by:** andikarachman
 - **Model type:** NLP model
 - **Language(s):** English
@@ -64,6 +63,9 @@ The dataset is slipt in three parts:
 - 60% of the dataset become the train set.
 - 20% of the dataset become the validation set.
 - 20% of the dataset become the test set.
+The training procedure is executed in a python file called "digit_recongizer.py". The main goal is to minimize the value of the loss function (cross-entropy loss). This is done using a CNN architecture.
+The training process returns the model with the smallest loss found for all the epochs.
+Then a validation process is  executed. It returns the model with the smallest validation accuracy.
 
 #### Training Hyperparameters
 The following hyperparameters were used during training:
@@ -73,8 +75,20 @@ The following hyperparameters were used during training:
 - train_batch_size: 100
 - eval_batch_size: 100
 - optimizer: alpha=0.9 and eps=1e-08 
-n_iters = 2000
+- n_iters = 2000
+- num_epochs = n_iters / (len(img_train) / batch_size)
 
+## Evaluation
+### Testing Data, Factors & Metrics
+The 20% of the data is used for the testing process. This process measures the accuracy of the model comparing the predictions to the ground truth. A 97% of accuracy is expected. The test loss is also computed in this process.
+
+- **Accuracy:** it is calculated as the ratio of the number of correct predictions to the total number of predictions made.
+
+## Environmental Impact
+
+- **Energy consumed:** 0.0074 kW
+- **CO2 emissions:** 0.0016 kg
+- **RAM energy:** 0.00074 kW
 
 ## Model Card Authors
 The authors of this Model Card are Roger Bel Clapés, Queralt Benito Martín and Martí Farré Farrús.
