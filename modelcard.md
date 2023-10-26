@@ -2,7 +2,7 @@
 
 # Model Card for DIGIT RECOGNIZER🔢🔍
 
-This model is used to identify digits from a dataset of tens of thousands of handwritten images, by utilizing convolutional neural networks (CNN). MNIST handwritten digit dataset is used to train and test the CNN model.
+This model is used to identify digits from a dataset of thousands of handwritten images, by utilizing convolutional neural networks (CNN). MNIST handwritten digit dataset is used to train and test the CNN model.
 
 ## Model Details
 
