@@ -12,7 +12,7 @@ The rationale behind this is to recognize, as accurately as possible, the number
 
 - **Developed by:** andikarachman 
 - **Shared by:** andikarachman
-- **Model type:** NLP model
+- **Model type:** Computer vision model
 - **Language(s):** English
 - **License:** CC BY-SA 3.0
 - **Finetuned from model:** 'CNN-Digit-Recognizer'
@@ -21,7 +21,7 @@ The rationale behind this is to recognize, as accurately as possible, the number
 
 The model can be found on the followig link. Inside it can also be found the original model the fine tuned version is based on.
 
-- **Repository:** https://github.com/MLOps-essi-upc/taed2-data-alchemists/edit/main/modelcard.md
+- **Repository:** https://github.com/MLOps-essi-upc/taed2-data-alchemists/tree/main
 
 ## Uses
 
