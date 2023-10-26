@@ -26,9 +26,9 @@ This dataset is commonly used as a benchmark dataset for developing and testing 
 ### Contents
 
 The MNIST dataset consists of two main parts:
-- **Training Set:** This set contains 60,000 labeled images of handwritten digits. Each image is associated with a corresponding label indicating the digit it represents (0 through 9). This dataset is typically used to train machine learning models.
+- **Training Set:** This set contains 4,200 labeled images of handwritten digits. Each image is associated with a corresponding label indicating the digit it represents (0 through 9). This dataset is typically used to train machine learning models.
 
-- **Test Set:** The test set consists of 10,000 images, also labeled with their respective digits. It is used to evaluate the performance of machine learning models after they have been trained on the training set.
+- **Test Set:** The test set consists of 1,050 images, also labeled with their respective digits. It is used to evaluate the performance of machine learning models after they have been trained on the training set.
 
 ### Data Instances and fields
 
