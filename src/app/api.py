@@ -139,10 +139,7 @@ def preprocessat(payload: UploadFile):
 @app.post("/models", tags=["Predict"])
 @construct_response
 async def _predict(request: Request, file: UploadFile):  # Change payload to accept image file
-
-    # Load the image and perform any necessary preprocessing
-    #prova = preprocessat(file)
-
+     # Load the image and perform any necessary preprocessing
     normalized_pixel_data = []
 
      # Read the content of the uploaded file
