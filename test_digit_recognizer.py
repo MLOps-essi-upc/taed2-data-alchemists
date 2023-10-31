@@ -18,7 +18,7 @@ def load_data():
     #prova = prova.head(1)
     prova = prova.tail(10)
     labels_prova = prova['label'].values
-    img_prova = prova.drop(labels='id', axis=1).values / 255 # Normalization
+    img_prova = prova.drop(labels='label', axis=1).values / 255 # Normalization
 
     img_prova = img_prova.reshape(-1, 1, 28, 28)
 
@@ -37,8 +37,8 @@ def load_data():
     prova_loader = data_utils.DataLoader(prova,
                                         batch_size=batch_size,
                                         shuffle=False, num_workers=16)
-    loaders = {'test': prova_loader}
-    return loaders
+    load_data = {'test': prova_loader}
+    return load_data
 
 def load_model():
     # Define batch_size, epoch and iteration

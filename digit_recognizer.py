@@ -219,7 +219,6 @@ model.load_state_dict(torch.load('models/cnn_digit_recognizer.pt'))
 
 
 def test(loaders, model, criterion, use_cuda):
-
     # monitor test loss and accuracy
     test_loss = 0.
     correct = 0.
