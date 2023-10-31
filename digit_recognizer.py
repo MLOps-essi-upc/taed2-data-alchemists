@@ -2,11 +2,6 @@
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-
-# Data visualizaiton packages
-import matplotlib.pyplot as plt
-#get_ipython().run_line_magic('matplotlib', 'inline')
-
 # Deep learning packages
 import torch
 import torch.nn as nn
@@ -30,7 +25,7 @@ print("Labels shape: {}".format(labels.shape))
 
 # Reshape images
 img = img.reshape(-1, 1, 28, 28)
-img_prova = img_prova.reshape(-1, 1, 28, 28)
+#img_prova = img_prova.reshape(-1, 1, 28, 28)
 
 
 # Split dataset into train and validation/test set
@@ -251,6 +246,7 @@ def test(loaders, model, criterion, use_cuda):
 
     print('\nTest Accuracy: %2d%% (%2d/%2d)' % (
         100. * correct / total, correct, total))
+    return 100. * correct / total
 
 # call test function
-test(loaders, model, criterion, use_cuda)
+acc = test(loaders, model, criterion, use_cuda)

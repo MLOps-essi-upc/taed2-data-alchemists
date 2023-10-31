@@ -1,0 +1,106 @@
+# Data analysis packages
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+# Deep learning packages
+import torch
+import torch.nn as nn
+import torch.optim as optim
+import torch.nn.functional as F
+import torch.utils.data as data_utils
+import torchvision.transforms as transforms
+from torchvision import datasets
+from digit_recognizer import test
+from prediction_digits import predict
+
+def load_data():
+    prova = pd.read_csv('data/train_aug.csv', dtype=np.float32)
+    #prova = prova.head(1)
+    prova = prova.tail(10)
+    labels_prova = prova['label'].values
+    img_prova = prova.drop(labels='id', axis=1).values / 255 # Normalization
+
+    img_prova = img_prova.reshape(-1, 1, 28, 28)
+
+    # COnvert prova set to tensors
+    img_prova = torch.from_numpy(img_prova)
+    labels_prova = torch.from_numpy(labels_prova).type(torch.LongTensor)
+
+    prova = data_utils.TensorDataset(img_prova, labels_prova)
+
+    # Define batch_size, epoch and iteration
+    batch_size = 100
+    n_iters = 2000
+    num_epochs = 30
+    num_classes = 10
+
+    prova_loader = data_utils.DataLoader(prova,
+                                        batch_size=batch_size,
+                                        shuffle=False, num_workers=16)
+    loaders = {'test': prova_loader}
+    return loaders
+
+def load_model():
+    # Define batch_size, epoch and iteration
+    batch_size = 100
+    n_iters = 2000
+    num_epochs = 30
+    num_classes = 10
+    # check if CUDA is available
+    use_cuda = torch.cuda.is_available()
+
+    # Define the CNN architecture
+    class Net(nn.Module):
+        def __init__(self):
+            super(Net, self).__init__()
+            ## Define layers of a CNN
+            self.conv1 = nn.Conv2d(in_channels=1, out_channels=32, kernel_size=5, padding=1)
+            self.conv2 = nn.Conv2d(in_channels=32, out_channels=32, kernel_size=5, padding=1)
+            self.conv3 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, padding=1)
+            self.conv4 = nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3, padding=1)
+            self.pool1 = nn.MaxPool2d(kernel_size=2, stride=1)
+            self.pool2 = nn.MaxPool2d(kernel_size=2, stride=2)
+            self.fc1 = nn.Linear(64 * 11 * 11, 2048)
+            self.fc2 = nn.Linear(2048, num_classes)
+            self.dropout = nn.Dropout(0.5)
+
+        def forward(self, x):
+            ## Define forward behavior
+            x = self.conv1(x)
+            x = self.pool1(F.relu(self.conv2(x)))
+            x = self.dropout(x)
+            x = self.conv3(x)
+            x = self.pool2(F.relu(self.conv4(x)))
+            x = self.dropout(x)
+            #print(x.shape)
+            x = x.view(-1, 64 * 11 * 11)
+            x = self.dropout(x)
+            x = F.relu(self.fc1(x))
+            x = self.dropout(x)
+            x = self.fc2(x)
+            return x
+
+    # instantiate the CNN
+    model = Net()
+
+    # move tensors to GPU if CUDA is available
+    if use_cuda:
+        model.cuda()
+
+    model.load_state_dict(torch.load('models/cnn_digit_recognizer.pt'))
+
+    return model
+
+def test_test():
+    data_load = load_data()
+    model_load = load_model()
+    criterion = nn.CrossEntropyLoss()
+    use_cuda = torch.cuda.is_available()
+    acc = test(data_load, model_load, criterion, use_cuda)
+    assert 95 <= acc
+
+def test_predict():
+    preds, lab = predict()
+    for pred in preds:
+        assert isinstance(pred, (int, np.int64)), f"pred is not an integer, its type is {type(pred)}"
+        assert 0 <= pred <= 9
