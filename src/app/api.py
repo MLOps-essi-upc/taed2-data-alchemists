@@ -139,7 +139,7 @@ async def get_models(request: Request):
     return response
 
 
-@app.post("/models/{type}", tags=["Predict"])
+@app.post("/models/main", tags=["Predict"])
 @construct_response
 async def _predict(request: Request, file: UploadFile):  # Change payload to accept image file
      # Load the image and perform any necessary preprocessing
