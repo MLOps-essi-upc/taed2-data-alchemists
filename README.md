@@ -4,50 +4,100 @@ TAED2
 Project Organization
 ------------
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
+    ├── .dvc
+    │   ├── .gitignore       
+    │   └── config  
+    │
+    ├── __pycache__      
+    │   └── test_api.cpython-39-pytest-7.4.3.pyc    
+    │
     ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
+    │   ├── test
+    │       ├── image_0.png
+    │       ├── image_1.png
+    │       ├── image_2.png
+    │       ├── image_3.png
+    │       ├── image_4.png
+    │       ├── image_5.png
+    │       ├── image_6.png
+    │       ├── image_7.png
+    │       ├── image_8.png
+    │       └── image_9.png
+    │   ├── sample_submission.csv
+    │   ├── test.csv
+    │   ├── train.csv
+    │   └── train_aug.csv
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
+    ├── great expectations        <- Great Expectations files
+    │   ├── checkpoints
+    │       └── my_checkpoint.yml
+    │   ├── expectations
+    │       ├── .ge_store_backend_id
+    │       └── my_suite.json
+    │   ├── notebooks
+    │       ├── pandas
+    │           └── validation_playground.ipynb
+    │       ├── spark
+    │           └── validation_playground.ipynb
+    │       ├── sql
+    │           └── validation_playground.ipynb
+    │       └── .DS_Store
+    │   ├── plugins
+    │       ├── custom_data_docs/styles
+    │           └── data_docs_custom_styles.css
+    │       └── .DS_Store   
+    │   ├── .DS_Store
+    │   ├── .gitignore
+    │   └── great_expectations.yml
     │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
+    ├── models            
+    │   └── cnn_digit_recognizer.pt
     │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
+    ├── src                  <- Source code
+    │   ├── __pycache__
+    │       └── __init__.cpython-39.pyc
+    │   ├── app              <- FastAPI
+    │       ├── api.py
+    │       ├── image_prova.png
+    │       ├── schemas.py
+    │       └── test_api.py
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+    ├── tests/__pycache__            
+    │   └── test_api.cpython-39-pytest-7.4.3.pyc
     │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
+    ├── .dvcignore               
     │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
+    ├── .gitignore               
     │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
+    ├── README.md           <- The top-level README for developers using this project.
     │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+    ├── LICENSE
+    │
+    ├── creacio_img.ipynb
+    │
+    ├── data.dvc
+    │
+    ├── datasetcard.md      <- Dataset card with the dataset information.
+    │
+    ├── digit_recognizer.py <- Trained model
+    │
+    ├── emissions.csv
+    │
+    ├── modelcard.md        <- Model card with the model information.
+    │
+    ├── params.yaml
+    │
+    ├── prediction_digits.py
+    │
+    ├── preprocessat.py
+    │
+    ├── requirements.txt
+    │
+    ├── setup.py
+    │
+    ├── test_environment.py
+    │
+    └── tox.ini             <- tox file with settings for running tox; see tox.readthedocs.io
 
 
 --------
