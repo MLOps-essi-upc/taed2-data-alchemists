@@ -37,6 +37,30 @@ def test_root(client):
     assert json["method"] == "GET"
     assert json["timestamp"] is not None
 
+def test_models(client):
+    response = client.get("/models")
+    json = response.json()
+    assert response.status_code == 200
+    assert (
+        json["data"]["models"]
+        == [
+              {
+                "name": "cnn_digit_recognizer",
+                "metrics": {
+                  "batch_size": 100,
+                  "learning_rate": 0.001,
+                  "num_classes": 10,
+                  "dataset_size": 5250
+                }
+              }
+            ]
+
+    )
+    assert json["message"] == "OK"
+    assert json["status-code"] == 200
+    assert json["method"] == "GET"
+    assert json["timestamp"] is not None
+
 
 def test_model_prediction(client):
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -51,7 +75,7 @@ def test_model_prediction(client):
         #headers = {"accept": "application/json"}
 
         # Send the POST request
-        response = client.post("http://127.0.0.1:8000/models", files={"file": ("filename", open(image_filename, "rb"), "image/jpeg")})
+        response = client.post("http://127.0.0.1:8000/models/main", files={"file": ("filename", open(image_filename, "rb"), "image/jpeg")})
 
         assert response.status_code == 200
     else:
