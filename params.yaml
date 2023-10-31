@@ -1,0 +1,4 @@
+batch_size: 100 
+learning_rate: 0.001
+num_classes: 10
+dataset_size: 5250

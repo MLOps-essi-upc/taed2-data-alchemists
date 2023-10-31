@@ -18,6 +18,12 @@ import torchvision.transforms as transforms
 from torchvision import datasets
 from fastapi import FastAPI, HTTPException, Request, UploadFile, File
 from schemas import UploadImage, DigitClass
+from pathlib import Path
+import yaml
+
+ROOT_DIR= Path(Path(__file__).resolve().parent.parent).parent
+# Path to the models folder
+MODELS_FOLDER_PATH = ROOT_DIR / "models"
 
 
 app = FastAPI(title="Digit Classifier API",
@@ -104,39 +110,36 @@ async def _root(request: Request):
 
     return response
 
-"""
-def preprocessat(payload: UploadFile):
-    # Access the uploaded image using payload.file
-    img = payload.file
 
-    # Perform any necessary preprocessing on the uploaded image
-    img = Image.open(img)
+@app.get("/models", tags=["Models"])
+@construct_response
+async def get_models(request: Request):
+    """
+    Returns a response containing information about available models and their associated metrics.
+    """
+    model_files = os.listdir(MODELS_FOLDER_PATH)
+    metrics_files = os.listdir(ROOT_DIR)
 
-    img = img.convert('L')
+    # Filter the model names
+    model_names = [file.split(".")[0] for file in model_files if file.endswith(".pt")]
 
-    # Convert the image to a NumPy array
-    img_array = np.array(img)
+    # Prepare a dictionary to store model names and their respective metrics
+    metric_file = "params.yaml"
+    with open(os.path.join(ROOT_DIR, metric_file)) as metric_file_content:
+        metric_data = yaml.safe_load(metric_file_content)
 
-    # Normalize pixel values to [0, 255]
-    img_normalized = (img_array / 255.0 * 255).astype(int)
+    # Create a list of model names along with their metrics
+    models_info = [{"name": name, "metrics": metric_data} for name in model_names]
 
-    # Flatten the 2D array into a 1D array
-    img_flat = img_normalized.flatten()
+    response = {
+        "message": HTTPStatus.OK.phrase,
+        "status-code": HTTPStatus.OK,
+        "data": {"models": models_info}
+    }
+    return response
 
-    # Get the 'id' (last character of the image name) and convert it to an integer
-    image_id = [int(image_name[-5])]
 
-
-    image_id.extend(img_flat)
-    # Append the 'id' and the flattened, normalized pixel values to the list
-    normalized_pixel_data.append(image_id)
-
-    # Create a DataFrame from the list of normalized pixel values
-    pixel_df = pd.DataFrame(normalized_pixel_data, columns=['id'] + ['pixel{}'.format(i) for i in range(len(normalized_pixel_data[0])-1)])
-
-    return pixel_df
-"""
-@app.post("/models", tags=["Predict"])
+@app.post("/models/{type}", tags=["Predict"])
 @construct_response
 async def _predict(request: Request, file: UploadFile):  # Change payload to accept image file
      # Load the image and perform any necessary preprocessing
@@ -233,8 +236,3 @@ async def _predict(request: Request, file: UploadFile):  # Change payload to acc
     }
 
     return response
-"""
-@app.get("/")
-async def root():
-    return {"message": "This is a digit recognizer model. Please update a folder with image of digits and our model will return the prediction of each"}
-"""
